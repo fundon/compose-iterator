@@ -36,7 +36,7 @@ function iterator () {
             return Promise.reject(new Error('next() called multiple times'))
           }
           nextCalled = true
-          return Promise.resolve(this.next().value)
+          return Promise.resolve().then(() => this.next().value)
         })
       }
 
