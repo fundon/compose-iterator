@@ -15,7 +15,6 @@ const iterator = require('compose-iterator')
 
 const middleware = []
 
-
 function compose(middleware) {
   middleware[Symbol.iterator] = iterator
 
