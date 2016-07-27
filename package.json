@@ -3,23 +3,28 @@
   "version": "0.0.0",
   "description": "Fastest iterator for middleware composition",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fundon/compose-iterator.git"
-  },
+  "author": "Fangdun Cai <cfddream@gmail.com>",
+  "license": "MIT",
   "keywords": [
     "koa",
     "middleware",
     "compose",
     "iterator"
   ],
-  "author": "Fangdun Cai <cfddream@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fundon/compose-iterator/issues"
+  "devDependencies": {
+    "any-promise": "^1.1.0",
+    "co": "^4.6.0",
+    "istanbul": "^0.4.2",
+    "matcha": "^0.6.1",
+    "mocha": "^2.4.5",
+    "should": "^2.0.0",
+    "standard": "^6.0.8"
   },
-  "homepage": "https://github.com/fundon/compose-iterator#readme"
+  "scripts": {
+    "bench": "matcha bench/bench.js",
+    "lint": "standard index.js examples/*.js test/*.js",
+    "test": "mocha --require should --reporter spec",
+    "test-cov": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should",
+    "test-travis": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --require should"
+  }
 }
