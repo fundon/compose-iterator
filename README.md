@@ -155,7 +155,7 @@ compose(stack.map((fn) => co.wrap(fn)))({}).then(function () {
 ## Badges
 
 ![](https://img.shields.io/badge/license-MIT-blue.svg)
-![](https://img.shields.io/badge/status-stable-green.svg)
+[![Build Status](https://travis-ci.org/fundon/compose-iterator.svg?branch=master)](https://travis-ci.org/fundon/compose-iterator)
 
 ---
 
