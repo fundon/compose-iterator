@@ -1,6 +1,6 @@
 {
   "name": "compose-iterator",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Fastest iterator for middleware composition",
   "main": "index.js",
   "author": "Fangdun Cai <cfddream@gmail.com>",
