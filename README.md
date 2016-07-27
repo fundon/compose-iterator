@@ -4,7 +4,7 @@ Fastest iterator for middleware composition.
 
 ## Benchmarks
 
-**For [koa-compose v3](https://github.com/koajs/compose/tree/3.1.0)**
+**For [koa-compose v3](https://github.com/koajs/compose/tree/3.1.0)**, https://github.com/koajs/compose/pull/57
 
 ### Before
 
