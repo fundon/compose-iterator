@@ -1,6 +1,6 @@
 # Compose Iterator
 
-Fastest iterator for middleware composition.
+Fastest iterator for middleware composition. The biggest performance improvements for Koa middleware.
 
 ## Benchmarks
 
