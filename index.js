@@ -39,7 +39,6 @@ const iterator = {
   }
 }
 
-
 /**
  * Expose iterator.
  */
