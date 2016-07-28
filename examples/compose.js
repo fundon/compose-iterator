@@ -27,23 +27,17 @@ function compose (middleware) {
   }
 
   /**
-   * Make an iterator for middleware.
-   */
-
-  middleware[Symbol.iterator] = iterator
-
-  // Alternative iteration.
-  const iter = middleware[Symbol.iterator]()
-
-  /**
    * @param {Object} context
    * @return {Promise}
    * @api public
    */
 
   return function (context, next) {
+    // iteration object
+    const iter = iterator[Symbol.iterator](middleware, context, next)
+
     try {
-      return Promise.resolve(iter.next(context, next).value)
+      return Promise.resolve(iter.next().value)
     } catch (err) {
       return Promise.reject(err)
     }
