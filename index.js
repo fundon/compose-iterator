@@ -13,26 +13,19 @@ const iterator = {
     let i = -1
 
     return {
-
       next () {
         const fn = middleware[++i] || nextFunc
-        const done = i === length
-        let value
         let nextCalled = false
 
-        if (fn) {
-          value = fn(context, () => {
+        return {
+          value: fn && fn(context, () => {
             if (nextCalled) {
               throw new Error('next() called multiple times')
             }
             nextCalled = true
             return Promise.resolve().then(() => this.next().value)
-          })
-        }
-
-        return {
-          value,
-          done
+          }),
+          done: i === length
         }
       }
     }
