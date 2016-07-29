@@ -1,5 +1,8 @@
 'use strict'
 
+// Shorthand for Symbol.iterator
+const SYMBOL_ITERATOR = Symbol.iterator
+
 /**
  * Make an iterator for middleware.
  *
@@ -8,7 +11,7 @@
  */
 
 const iterator = {
-  [Symbol.iterator] (middleware, context, nextFunc) {
+  [SYMBOL_ITERATOR] (middleware, context, nextFunc) {
     const length = middleware.length
     let i = -1
 
