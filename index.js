@@ -15,8 +15,8 @@ const iterator = {
     return {
 
       next () {
-        let fn = middleware[++i] || nextFunc
-        let done = i === length
+        const fn = middleware[++i] || nextFunc
+        const done = i === length
         let value
         let nextCalled = false
 
