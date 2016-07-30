@@ -11,13 +11,11 @@ const SYMBOL_ITERATOR = Symbol.iterator
  */
 
 const iterator = {
-  [SYMBOL_ITERATOR] (middleware, context, nextFunc) {
-    const length = middleware.length
-    let i = -1
-
+  [SYMBOL_ITERATOR] (middleware, length, context, nextFunc) {
     return {
-      next () {
-        const fn = middleware[++i] || nextFunc
+      next (i) {
+        i = i >>> 0
+        const fn = middleware[i] || nextFunc
         let nextCalled = false
 
         return {
@@ -26,7 +24,7 @@ const iterator = {
               throw new Error('next() called multiple times')
             }
             nextCalled = true
-            return Promise.resolve().then(() => this.next().value)
+            return Promise.resolve(this.next(++i).value)
           }),
           done: i === length
         }

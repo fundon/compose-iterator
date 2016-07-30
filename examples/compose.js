@@ -34,7 +34,7 @@ function compose (middleware) {
 
   return function (context, next) {
     // iteration object
-    const iter = iterator[Symbol.iterator](middleware, context, next)
+    const iter = iterator[Symbol.iterator](middleware, middleware.length, context, next)
 
     try {
       return Promise.resolve(iter.next().value)
