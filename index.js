@@ -13,7 +13,8 @@ const SYMBOL_ITERATOR = Symbol.iterator
 const iterator = {
   [SYMBOL_ITERATOR] (middleware, length, context, nextFunc) {
     return {
-      next (i = 0) {
+      next (i) {
+        i |= 0
         const fn = middleware[i] || nextFunc
         let called = false
 
